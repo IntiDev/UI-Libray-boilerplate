@@ -9,6 +9,7 @@
       {
         "runtime": "automatic"
       }
-    ]
+    ],
+    ["replace-import-extension", { "extMapping": { ".jsx": ".js" }}]
   ]
 }
