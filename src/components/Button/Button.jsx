@@ -1,29 +1,22 @@
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import {ButtonStyled } from "./Button.styled";
 
-const styles = {
-  background: "#fff",
-  border: "0.2rem solid #0099ff",
-  color: "#0099ff",
-  letterSpacing: "0.1em",
-  fontWeight: "bold",
-  padding: "1em",
-  textTransform: "uppercase"
-};
-
-const Button = ({disabled, label, onClick}) => (
-    <button disabled={(!!disabled)} onClick={onClick} style={styles}>
+const Button = ({ primary, size, label }) => (
+    <ButtonStyled className={`${primary ? 'primary' : 'secondary'} ${size}`}>
       {label}
-    </button>
+    </ButtonStyled>
 );
 
 Button.propTypes = {
-  disabled: PropTypes.bool,
-  label: PropTypes.string,
-  onClick: PropTypes.func
+  primary: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  label: PropTypes.string.isRequired
 };
 
 Button.defaultProps = {
-  disabled: false
+  primary: false,
+  size: 'medium'
 };
 
 export default Button;
